@@ -1,0 +1,47 @@
+﻿@model List<Robotnik>
+
+@{
+    
+}
+<form action="/Robotnik/Robotnik" method="post">
+    <div>
+        <div class="text-center">
+            <h1>Wprowadź dane pracownika:</h1>
+            <div class="g-3">
+                <div style=" width: 25%" class="mb-2">
+                    <input type="text" class="form-control" name="name" placeholder="wprowadź imie" aria-label="wprowadź imie">
+                </div>
+                <div style=" width: 25%" class="mb-2">
+                    <input type="text" class="form-control" name="age" placeholder="wprowadź wiek" aria-label="wprowadź wiek">
+                </div>
+            </div>
+        </div>
+        <div class="mb-2">
+            <button type="submit" class="btn btn-success">Dodaj</button>
+        </div>
+    </div>
+</form>
+@if (Model is not null)
+        {
+ <div class="container">
+    <table class="table">
+        <thead>
+        <th scope="col">Imie</th>
+        <th scope="col">Wiek</th>        
+        </thead> 
+        
+
+        
+        @foreach (var pracownik in Model)
+        {
+            <tbody>
+                <tr>                   
+                    <td>@pracownik.name</td>
+                    <td>@pracownik.age</td>                    
+                </tr>
+            </tbody>
+        }
+        
+    </table>
+</div>
+}
