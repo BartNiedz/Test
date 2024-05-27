@@ -24,10 +24,11 @@ namespace Test.Controllers
             }
             
             robotniks.Add(robotnik);
-
+            
+            
             
 
-            return View();
+            return View(robotniks);
         }
     }
 }
