@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Reflection;
+using System.Xml.Linq;
 using Test.Models;
 
 namespace Test.Controllers
@@ -9,7 +11,11 @@ namespace Test.Controllers
         public static List<Robotnik> robotniks;
         public IActionResult Robotnik()
         {
-            return View();
+            if (robotniks == null)
+            {
+                robotniks = new List<Robotnik>();
+            }
+            return View(robotniks);
         }
         [HttpPost]
         public IActionResult Robotnik(string name, int age)
@@ -29,6 +35,13 @@ namespace Test.Controllers
             
 
             return View(robotniks);
+        }
+        public IActionResult RobotnikRemove(Robotnik robotnik) 
+        {
+            
+            robotniks.Remove(robotnik);
+
+            return RedirectToAction("Robotnik", "Robotnik");
         }
     }
 }
