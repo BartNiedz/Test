@@ -1,0 +1,17 @@
+﻿@model Robotnik
+    
+@{
+
+}
+<form action="/Robotnik/RobotnikEdit" method="post">
+    @Html.HiddenFor(xa => xa.robotnikId)    
+    <div class="mb-3">
+        <label class="form-label">Dodaj imie</label>
+        <input type="name" asp-for="name" class="form-control" placeholder="Imie">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Dodaj wiek</label>
+        <input type="name" asp-for="age" class="form-control" placeholder="Wiek">
+    </div>    
+    <button type="submit" class="btn btn-success">Dodaj</button>
+</form>

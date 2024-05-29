@@ -36,12 +36,21 @@ namespace Test.Controllers
 
             return View(robotniks);
         }
-        public IActionResult RobotnikRemove(Robotnik robotnik) 
+        public IActionResult RobotnikRemove(Guid robotnikId) 
         {
-            
+           Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);            
+
             robotniks.Remove(robotnik);
 
             return RedirectToAction("Robotnik", "Robotnik");
+        }        
+        public IActionResult RobotnikEdit(Guid robotnikId)
+        {
+            Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);
+
+            
+
+            return View(robotnik);
         }
     }
 }

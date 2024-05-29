@@ -1,7 +1,7 @@
 ﻿@model List<Robotnik>
 
 @{
-
+   Robotnik robotnik = ViewBag.robotnik;
 }
 <form action="/Robotnik/Robotnik" method="post">
     <div>
@@ -30,6 +30,7 @@
             <th scope="col">Imie</th>
             <th scope="col">Wiek</th>
             <th scope="col"></th>
+            <th scope="col"></th>
             </thead>
             @foreach (var pracownik in Model)
             {
@@ -38,7 +39,8 @@
                     <td style="font-weight:bold">@pracownik.robotnikId</td>
                     <td>@pracownik.name</td>
                     <td>@pracownik.age</td>
-                    <td class="text-end" style="width: 5%"><a href="Robotnik/RobotnikRemove?@pracownik.robotnikId" class="btn btn-danger">Usuń</a></td>
+                    <td style="width: 5%"><a href="/Robotnik/RobotnikEdit?robotnikId=@pracownik.robotnikId" class="btn btn-success">Edytuj</a></td>
+                    <td  style="width: 5%"><a href="/Robotnik/RobotnikRemove?robotnikId=@pracownik.robotnikId" class="btn btn-danger">Usuń</a></td>
                 </tr>
 
             }
