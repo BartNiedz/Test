@@ -43,7 +43,8 @@ namespace Test.Controllers
             robotniks.Remove(robotnik);
 
             return RedirectToAction("Robotnik", "Robotnik");
-        }        
+        }
+        
         public IActionResult RobotnikEdit(Guid robotnikId)
         {
             Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);
