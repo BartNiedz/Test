@@ -38,8 +38,7 @@ namespace Test.Controllers
         }
         public IActionResult RobotnikRemove(Guid robotnikId) 
         {
-           Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);            
-
+           Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);                 
             robotniks.Remove(robotnik);
 
             return RedirectToAction("Robotnik", "Robotnik");
@@ -49,9 +48,18 @@ namespace Test.Controllers
         {
             Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);
 
-            
+            ViewBag.Robotnik = robotnik;
 
             return View(robotnik);
-        }
+        }      
+        public IActionResult RobotnikSent(Robotnik model)
+        {
+            
+            robotniks.Remove(ViewBag.Robotnik);
+            
+            robotniks.Add(model);
+
+            return RedirectToAction("Robotnik", "Robotnik");
+        }    
     }
 }

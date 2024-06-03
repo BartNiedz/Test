@@ -3,13 +3,13 @@
 @{
 
 }
-<form action="/Robotnik/RobotnikEdit" method="post">
+<form action="/Robotnik/RobotnikSent" method="post">
     @Html.HiddenFor(xa => xa.robotnikId)    
-    <div style="witdh: 25%" class="mb-3">
+    <div style="width: 25%" class="mb-3">
         <label  class="form-label">Dodaj imie</label>
         <input type="name" asp-for="name"  class="form-control" placeholder="Imie">
     </div>
-    <div style="witdh: 25%" class="mb-3">
+    <div style="width: 25%" class="mb-3">
         <label  class="form-label">Dodaj wiek</label>
         <input type="name" asp-for="age"  class="form-control" placeholder="Wiek">
     </div>    
