@@ -48,18 +48,23 @@ namespace Test.Controllers
         {
             Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);
 
-            ViewBag.Robotnik = robotnik;
+           // ViewBag.robotnikId = robotnikId;
+
+                                  
 
             return View(robotnik);
-        }      
+        }
+        //[HttpPost]
         public IActionResult RobotnikSent(Robotnik model)
         {
-            
-            robotniks.Remove(ViewBag.Robotnik);
-            
+            //var robotnikId = model.robotnikId;
+            //var name = model.name;
+            //var age = model.age;
+            Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);
+            robotniks.Remove(robotnik);
             robotniks.Add(model);
 
-            return RedirectToAction("Robotnik", "Robotnik");
+            return RedirectToAction("Robotnik", "Robotnik" /*new { model = model}*/);
         }    
     }
 }

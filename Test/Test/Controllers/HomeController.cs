@@ -49,7 +49,28 @@ namespace Test.Controllers
 
             return View(result);
         }
+        public IActionResult Szesciokat()
+        {
+           // Szesciokat z = new Szesciokat();
+            double a = 5;
+            double b = 5;
+            double c = 5;
+            double PPSzesciokat = ((3 * Math.Pow(a, 2)) * Math.Sqrt(3)) / 2;
+            double OBWSzesciokat = 6 * a;
 
+            return View();
+        }
+        public IActionResult Szescian()
+        {
+            Szescian model = new Szescian();
+            model.a = 2;
+            model.b = 3;
+            model.c = 4;
+
+            double result = model.Obj();
+        //    double Objetosc = a * b * c;
+            return View();  
+        }
         public IActionResult Privacy()
         {
             return View();
