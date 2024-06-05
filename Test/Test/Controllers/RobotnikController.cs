@@ -21,18 +21,15 @@ namespace Test.Controllers
         public IActionResult Robotnik(string name, int age)
         {
             Robotnik robotnik = new Robotnik();
+            robotnik.robotnikId = Guid.NewGuid();
             robotnik.name = name;
             robotnik.age = age;
-            
             
             if (robotniks ==null) { 
             robotniks = new List<Robotnik>();
             }
             
             robotniks.Add(robotnik);
-            
-            
-            
 
             return View(robotniks);
         }
@@ -48,23 +45,16 @@ namespace Test.Controllers
         {
             Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);
 
-           // ViewBag.robotnikId = robotnikId;
-
-                                  
-
             return View(robotnik);
         }
-        //[HttpPost]
-        public IActionResult RobotnikSent(Robotnik model)
-        {
-            //var robotnikId = model.robotnikId;
-            //var name = model.name;
-            //var age = model.age;
-            Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == robotnikId);
-            robotniks.Remove(robotnik);
-            robotniks.Add(model);
 
-            return RedirectToAction("Robotnik", "Robotnik" /*new { model = model}*/);
+        [HttpPost]
+        public IActionResult RobotnikSent(Robotnik model)
+        {            
+            Robotnik robotnik = robotniks.FirstOrDefault(x => x.robotnikId == model.robotnikId);            
+            robotniks.Remove(robotnik);
+            robotniks.Add(model);            
+            return RedirectToAction("Robotnik", "Robotnik");
         }    
     }
 }

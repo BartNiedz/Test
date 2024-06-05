@@ -51,12 +51,12 @@ namespace Test.Controllers
         }
         public IActionResult Szesciokat()
         {
-           // Szesciokat z = new Szesciokat();
-            double a = 5;
-            double b = 5;
-            double c = 5;
-            double PPSzesciokat = ((3 * Math.Pow(a, 2)) * Math.Sqrt(3)) / 2;
-            double OBWSzesciokat = 6 * a;
+            Szesciokat z = new Szesciokat();
+            z.a = 5;
+            z.b = 5;
+            z.c = 5;
+            double PPSzesciokat = z.PPSzesciokat();
+            double OBWSzesciokat = z.ObwSzesciokat();
 
             return View();
         }
@@ -68,7 +68,7 @@ namespace Test.Controllers
             model.c = 4;
 
             double result = model.Obj();
-        //    double Objetosc = a * b * c;
+        
             return View();  
         }
         public IActionResult Privacy()

@@ -1,0 +1,53 @@
+﻿@model List<Sklep>
+@{
+
+}
+<form action="/Sklep/Sklep" method="post">
+    <div>
+        <div class="text-end"><button href="#" class="btn btn-info">Koszyk</button></div>
+        <div class="text-center">
+            <h1>Wprowadź produkt:</h1>
+            <div class="g-3">
+                <div style=" width: 25%" class="mb-2">
+                    <input type="text" class="form-control" name="name" placeholder="wprowadź nazwe" aria-label="wprowadź nazwe">
+                </div>
+                <div style=" width: 25%" class="mb-2">
+                    <input type="text" class="form-control" name="price" placeholder="wprowadź cene" aria-label="wprowadź cene">
+                </div>
+            </div>
+        </div>
+        <div class="mb-2">
+            <button type="submit" class="btn btn-success">Dodaj</button>
+        </div>
+    </div>
+</form>
+@if (Model is not null)
+{
+    <div>
+        <table class="table">
+            <thead>
+            <th scope="col" style="width:28%">ID</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Cena</th>
+            <th scope="col">Ilość</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            </thead>
+            @foreach (var produkt in Model)
+            {
+
+                <tr>
+                    <td style="font-weight:bold">@produkt.Id</td>
+                    <td>@produkt.Nazwa</td>
+                    <td>@produkt.Cena zł</td>
+                    <td>@produkt.Stan</td>
+                    <td style="width: 5%"><a href="#" class="btn btn-success">+</a></td>
+                    <td style="width: 5%"><a href="#" class="btn btn-danger">-</a></td>
+                    <td style="width: 13%"><a href="#" class="btn btn-primary">Dodaj do koszyka</a></td>
+                </tr>
+
+            }
+        </table>
+    </div>
+}
