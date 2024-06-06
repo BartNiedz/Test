@@ -4,7 +4,7 @@
 }
 <form action="/Sklep/Sklep" method="post">
     <div>
-        <div class="text-end"><button href="#" class="btn btn-info">Koszyk</button></div>
+        <div class="text-end"><a href="/Sklep/CartList" class="btn btn-outline-primary">Koszyk</a></div>
         <div class="text-center">
             <h1>Wprowadź produkt:</h1>
             <div class="g-3">
@@ -30,6 +30,7 @@
             <th scope="col">Nazwa</th>
             <th scope="col">Cena</th>
             <th scope="col">Ilość</th>
+            <th scope="col">Wartość</th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -42,9 +43,10 @@
                     <td>@produkt.Nazwa</td>
                     <td>@produkt.Cena zł</td>
                     <td>@produkt.Stan</td>
-                    <td style="width: 5%"><a href="#" class="btn btn-success">+</a></td>
-                    <td style="width: 5%"><a href="#" class="btn btn-danger">-</a></td>
-                    <td style="width: 13%"><a href="#" class="btn btn-primary">Dodaj do koszyka</a></td>
+                    <td>@(produkt.Cena * @produkt.Stan) zł</td>
+                    <td style="width: 5%"><a href="/Sklep/ProductEdit?Id=@produkt.Id" class="btn btn-success">Edytuj</a></td>
+                    <td style="width: 5%"><a href="/Sklep/ProductDelete?Id=@produkt.Id" class="btn btn-danger">Usuń</a></td>
+                    <td style="width: 13%"><a href="/Sklep/CartList" class="btn btn-primary">Dodaj do koszyka</a></td>
                 </tr>
 
             }

@@ -1,0 +1,20 @@
+﻿@model Sklep
+@{
+
+}
+<form action="/Sklep/ProductSent" method="post">
+    @Html.HiddenFor(xa => xa.Id)
+    <div style="width: 25%" class="mb-3">
+        <label class="form-label">Wprowadź nazwę</label>
+        <input type="name" asp-for="Nazwa" class="form-control" placeholder="Nazwa">
+    </div>
+    <div style="width: 25%" class="mb-3">
+        <label class="form-label">Wprowadź cenę</label>
+        <input type="name" asp-for="Cena" class="form-control" placeholder="Cena">
+    </div>
+    <div style="width: 25%" class="mb-3">
+        <label class="form-label">Wprowadź ilość</label>
+        <input type="name" asp-for="Stan" class="form-control" placeholder="Stan">
+    </div>
+    <button type="submit" class="btn btn-success">Dodaj</button>
+</form>
