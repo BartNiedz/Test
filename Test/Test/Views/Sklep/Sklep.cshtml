@@ -30,23 +30,21 @@
             <th scope="col">Nazwa</th>
             <th scope="col">Cena</th>
             <th scope="col">Ilość</th>
-            <th scope="col">Wartość</th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
             </thead>
-            @foreach (var produkt in Model)
+            @foreach (var produkt in Model.OrderBy(p => p.Nazwa))
             {
 
                 <tr>
                     <td style="font-weight:bold">@produkt.Id</td>
                     <td>@produkt.Nazwa</td>
                     <td>@produkt.Cena zł</td>
-                    <td>@produkt.Stan</td>
-                    <td>@(produkt.Cena * @produkt.Stan) zł</td>
+                    <td>@produkt.Stan</td>                    
                     <td style="width: 5%"><a href="/Sklep/ProductEdit?Id=@produkt.Id" class="btn btn-success">Edytuj</a></td>
                     <td style="width: 5%"><a href="/Sklep/ProductDelete?Id=@produkt.Id" class="btn btn-danger">Usuń</a></td>
-                    <td style="width: 13%"><a href="/Sklep/CartList" class="btn btn-primary">Dodaj do koszyka</a></td>
+                    <td style="width: 13%"><a href="/Sklep/CartList?Id=@produkt.Id" class="btn btn-primary">Dodaj do koszyka</a></td>
                 </tr>
 
             }

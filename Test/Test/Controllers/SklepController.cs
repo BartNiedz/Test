@@ -56,9 +56,11 @@ namespace Test.Controllers
         //do edycji
         public IActionResult CartList(Sklep model)
         {
+
             Sklep produkt = shop.FirstOrDefault(x => x.Id == model.Id);
-            shop.Add(model);
-            return View();
+            
+            //shop.Add(produkt);
+            return View(produkt);
         }
     }
 }

@@ -32,7 +32,7 @@
             <th scope="col"></th>
             <th scope="col"></th>
             </thead>
-            @foreach (var pracownik in Model)
+            @foreach (var pracownik in Model.OrderBy(p => p.name))
             {
 
                 <tr>
