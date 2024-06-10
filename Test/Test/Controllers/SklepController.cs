@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using Test.Models;
 
 namespace Test.Controllers
@@ -6,6 +7,7 @@ namespace Test.Controllers
     public class SklepController : Controller
     {
         public static List<Sklep> shop;
+        public static List<Sklep> koszyk;
         public IActionResult Sklep()
         {
             if (shop == null)
@@ -52,15 +54,27 @@ namespace Test.Controllers
             shop.Remove(produkt);
 
             return RedirectToAction("Sklep", "Sklep");
-        }
+        }     
+
         //do edycji
         public IActionResult CartList(Sklep model)
         {
 
-            Sklep produkt = shop.FirstOrDefault(x => x.Id == model.Id);
+
+            Sklep produkt = new Sklep() ;
             
-            //shop.Add(produkt);
-            return View(produkt);
+            produkt.Id = model.Id;
+            produkt.Nazwa = model.Nazwa;
+            produkt.Cena = model.Cena;
+            produkt.Stan = model.Stan;
+
+            if (koszyk == null)
+            {
+                koszyk = new List<Sklep>();
+            }
+
+            koszyk.Add(produkt);
+            return View(koszyk);
         }
     }
 }
